@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>reveal.js</title>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>识别网络中节点年龄顺序</h1>
+          <h3>利用网络结构和网络时间切片</h3>
+          <p> <small>Created by <a href="https://github.com/hashc">崔浩川</a>
+             </small> </p>
+        
+        </section>
+        <section>
+          <section>
+            <h3>各种方法与age的相关性</h3>
+            <a href="#/2"> <img data-src="./src/1.png"
+                alt="Up arrow"
+                height="400" width="1500"> </a>
+          </section>
+          <section>
+            <p>degree:度</p>
+            <p>core:K-core分解</p>
+          </section>
+          
+          <section>
+            <p>decore和decore2的方法，基于网络分解</p>
+            <a href="#/2"> <img data-src="./src/2.png"
+                alt="Up arrow"
+                height="400" width="500"> </a> 
+          </section> 
+          <section>
+            <p>各种方法的比较</p>
+            <a href="#/2"> <img data-src="./src/3.png"
+                alt="Up arrow"
+                height="400" width="2000"> </a> 
+          </section> 
+        </section>
+        <section>
+        	<section data-markdown="">
+         	 <script type="text/template">
+							## 更多的时间信息
+          	  - 额外增加一个时间切片，增加在哪会好
+          	  - 增加多个切片的效果呢？
+						</script>      
+        	</section>
+         
+        	<section data-markdown="">
+            <script type="text/template">
+            ## 增加一个网络切片
+            根据第i时间的网络切片和最新的网络切片的信息耦合，估计节点的时间信息
+            节点v在第i时间的度记为Di[v],最新的度记为D[v]
+            - snapdegree:根据最新的节点的度，把已知在第i时间的节点的排名提前
+            - snapdegree2:根据第i时间的节点的度，把已知在第i时间的节点的排名提前，
+            - combinecut:
+            </script> 
+        	</section>
+          <section>
+            <p>增加一个网络切片</p>
+             <a href="#/2"> <img data-src="./src/4.png"
+                alt="Up arrow"
+                height="500" width="1500"> </a> 
+        	</section>
+        	<section>
+            <p>增加多个网络切片</p>
+             <a href="#/2"> <img data-src="./src/5.png"
+                alt="Up arrow"
+                height="500" width="1500"> </a> 
+        	</section>          
+          
+        </section>        
+      </div>
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+  </body>
+</html>
